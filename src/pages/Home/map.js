@@ -48,10 +48,11 @@ export default class Map extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor="#2789ef" />
-        {/* <View style={styles.header}>
-          <Text style={styles.headerTitle}>地图</Text>
-        </View> */}
+        <StatusBar
+          hidden={false}
+          backgroundColor="#2789ef"
+          barStyle="light-content"
+        />
         <HeaderComponent title="地图" />
         <MapView
           trafficEnabled={this.state.trafficEnabled}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, StyleSheet, WebView, Platform } from "react-native";
+import { View, StyleSheet, WebView, Platform, StatusBar } from "react-native";
 import HeaderComponent from "../../components/header";
 import Dimensions from "Dimensions";
 export default class ChartScreen extends Component {
@@ -21,6 +21,11 @@ export default class ChartScreen extends Component {
         : { uri: "file:///android_asset/webview/chart/index.html" };
     return (
       <View style={styles.container}>
+        <StatusBar
+          hidden={false}
+          backgroundColor="#2789ef"
+          barStyle="light-content"
+        />
         <HeaderComponent title="报表" />
         <WebView
           originWhitelist={["*"]}

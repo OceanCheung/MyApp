@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, Button, StyleSheet } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import HeaderComponent from "../../components/header";
 
 export default class ProjectScreen extends Component {
   //构造函数
@@ -8,12 +9,6 @@ export default class ProjectScreen extends Component {
     super(props);
     this.state = {};
   }
-  //方法
-  startLogin() {}
-  //渲染Dom
-  static navigationOptions = {
-    header: null //隐藏顶部导航栏
-  };
   render() {
     return (
       <View style={styles.container}>

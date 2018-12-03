@@ -8,7 +8,6 @@ import {
   StatusBar,
   Image
 } from "react-native";
-//import LinearGradient from "react-native-linear-gradient";
 
 export default class LoginScreen extends Component {
   //构造函数
@@ -20,18 +19,12 @@ export default class LoginScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      // <LinearGradient
-      //   locations={[0.2, 0.7, 1.0]}
-      //   start={{ x: 1, y: 0.4 }}
-      //   end={{ x: 0, y: 0.9 }}
-      //   style={styles.container}
-      //   colors={["#2789ef", "#3c95f1", "#2897ff"]}
-      // >
       <View style={styles.container}>
-        <StatusBar backgroundColor="#2789ef" barStyle="light-content" />
-        <View style={styles.titleContainer}>
-          <Text style={styles.titleTxt}>登录</Text>
-        </View>
+        <StatusBar
+          hidden={false}
+          backgroundColor="#2789ef"
+          barStyle="light-content"
+        />
         <View style={styles.inputItemContainer}>
           <TextInput
             underlineColorAndroid="#7cb4ef"
@@ -51,8 +44,11 @@ export default class LoginScreen extends Component {
         </View>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigate("Home", { name: "Jane" })}
+            onPress={() =>
+              navigate("Home", {
+                name: "Jane"
+              })
+            }
           >
             <Text style={styles.buttonItem}>登录</Text>
           </TouchableOpacity>
@@ -75,7 +71,6 @@ export default class LoginScreen extends Component {
           />
         </View>
       </View>
-      // </LinearGradient>
     );
   }
 }
