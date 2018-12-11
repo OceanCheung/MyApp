@@ -36,7 +36,7 @@ export default class LoginScreen extends Component {
         <View style={styles.inputItemContainer}>
           <TextInput
             underlineColorAndroid="#5ca6f3"
-            password={true}
+            secureTextEntry={true}
             placeholderTextColor="#5ca6f3"
             style={styles.inputItem}
             placeholder="密码"

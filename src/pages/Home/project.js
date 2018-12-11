@@ -1,7 +1,16 @@
 import React, { Component } from "react";
-import { Text, View, Button, StyleSheet } from "react-native";
+import {
+  Text,
+  View,
+  Button,
+  StyleSheet,
+  BackHandler,
+  ToastAndroid,
+  StatusBar,
+  Image
+} from "react-native";
+import { Item, Input, Icon } from "native-base";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import HeaderComponent from "../../components/header";
 
 export default class ProjectScreen extends Component {
   //构造函数
@@ -9,10 +18,66 @@ export default class ProjectScreen extends Component {
     super(props);
     this.state = {};
   }
+  goToSearchPage = () => {
+    const { navigate } = this.props.navigation;
+    navigate("Search");
+  };
+  handleBackPress = () => {
+    if (this.props.navigation.isFocused()) {
+      if (this.lastBackPressed && this.lastBackPressed + 2000 >= Date.now()) {
+        BackHandler.exitApp(); //退出整个应用
+        return false;
+      }
+      this.lastBackPressed = Date.now(); //按第一次的时候，记录时间
+      ToastAndroid.show("再按一次退出应用", ToastAndroid.SHORT); //显示提示信息
+      return true;
+    }
+  };
+  componentDidMount() {
+    BackHandler.addEventListener("hardwareBackPress", this.handleBackPress);
+  }
+  componentWillUnmount() {
+    BackHandler.removeEventListener("hardwareBackPress", this.handleBackPress);
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text> 我是项目页面 </Text>
+        <StatusBar
+          hidden={false}
+          backgroundColor="#2789ef"
+          barStyle="light-content"
+        />
+        <View style={styles.headerContainer}>
+          <View style={styles.headerIconContainer}>
+            <Image
+              style={styles.imageItem}
+              source={require("../../assets/images/user.png")}
+            />
+          </View>
+          <View style={styles.headerInputContainer}>
+            <Item
+              style={
+                {
+                  height: 40,
+                  borderColor: "#2789ef",
+                  backgroundColor: "#ffffff"
+                }
+                //borderRadius: 15
+              }
+              rounded
+            >
+              <Icon style={{ color: "gray" }} active name="search" />
+              <Input
+                style={{ borderColor: "#2789ef", color: "gray" }}
+                placeholder="请输入相关信息..."
+                onFocus={this.goToSearchPage}
+              />
+            </Item>
+          </View>
+          <View style={styles.headerIconContainer}>
+            <Icon style={{ color: "#ffffff" }} name="camera" />
+          </View>
+        </View>
       </View>
     );
   }
@@ -23,5 +88,26 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     alignItems: "center"
+  },
+  headerContainer: {
+    display: "flex",
+    flexDirection: "row",
+    width: "100%",
+    backgroundColor: "#2789ef",
+    height: 60
+  },
+  headerIconContainer: {
+    width: "10%",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  headerInputContainer: {
+    width: "80%",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  imageItem: {
+    width: 36,
+    height: 36
   }
 });

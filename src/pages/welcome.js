@@ -1,25 +1,15 @@
 import React, { Component } from "react";
 import { View, Image, Dimensions, StyleSheet, StatusBar } from "react-native";
 import Swiper from "react-native-swiper";
+import LoginScreen from "./login";
 
 const { width, height } = Dimensions.get("window"); //获取手机的宽和高
-
-const styles = StyleSheet.create({
-  wrapper: {},
-  container: {
-    flex: 1 //必写
-  },
-  image: {
-    width, //等于width:width
-    height
-  }
-});
 
 export default class WelcomeScreen extends Component {
   //加载计时器
   componentDidMount() {
     this.timer = setTimeout(() => {
-      this.props.navigation.navigate("Login"); //7秒后进入登录页
+      this.props.navigation.navigate("Login"); //5秒后进入登录页
     }, 5000);
   }
   //卸载计时器
@@ -56,3 +46,13 @@ export default class WelcomeScreen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1 //必写
+  },
+  image: {
+    width,
+    height
+  }
+});

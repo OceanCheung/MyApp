@@ -4,6 +4,7 @@ import React, {
 import LoginScreen from "../pages/login";
 import HomeScreen from "../navigator/home";
 import WelcomeScreen from '../pages/welcome';
+import SearchScreen from '../pages/search';
 //import Chart from "../pages/Home/chart";
 import {
   createStackNavigator
@@ -24,6 +25,12 @@ export default createStackNavigator({
   },
   Home: {
     screen: HomeScreen,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Search: {
+    screen: SearchScreen,
     navigationOptions: {
       header: null
     }

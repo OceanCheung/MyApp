@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Text, View, Button, StyleSheet } from "react-native";
+import { Text, View, Button, StyleSheet, StatusBar } from "react-native";
+import HeaderComponent from "../../components/header";
 
 export default class SettingScreen extends Component {
   //构造函数
@@ -16,6 +17,12 @@ export default class SettingScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar
+          hidden={false}
+          backgroundColor="#2789ef"
+          barStyle="light-content"
+        />
+        <HeaderComponent title="设置" />
         <Text> 我是设置 </Text>
       </View>
     );
