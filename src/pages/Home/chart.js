@@ -28,6 +28,7 @@ export default class ChartScreen extends Component {
         />
         <HeaderComponent title="报表" />
         <WebView
+          style={{ width: "100%" }}
           originWhitelist={["*"]}
           contentInset={{ top: 0, left: 0 }}
           automaticallyAdjustContentInsets={true}
@@ -42,7 +43,7 @@ export default class ChartScreen extends Component {
 }
 const styles = StyleSheet.create({
   container: {
-    width: Dimensions.get("window").width,
+    width: "100%",
     height: "100%",
     alignItems: "center"
   }

@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF"
   },
   header: {
-    width: Dimensions.get("window").width,
+    width: "100%",
     backgroundColor: "#2789ef",
     flexDirection: "row",
     justifyContent: "center",
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
   map: {
-    width: Dimensions.get("window").width,
+    width: "100%",
     height: Dimensions.get("window").height,
     marginBottom: 16
   }

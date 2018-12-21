@@ -2,21 +2,20 @@ import React, { Component } from "react";
 import {
   Text,
   View,
-  Button,
   StyleSheet,
   BackHandler,
   ToastAndroid,
   StatusBar,
   Image
 } from "react-native";
-import { Item, Input, Icon } from "native-base";
+import { Item, Input, Icon, Fab, Button } from "native-base";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 export default class ProjectScreen extends Component {
   //构造函数
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { active: false };
   }
   goToSearchPage = () => {
     const { navigate } = this.props.navigation;
@@ -77,6 +76,27 @@ export default class ProjectScreen extends Component {
           <View style={styles.headerIconContainer}>
             <Icon style={{ color: "#ffffff" }} name="camera" />
           </View>
+        </View>
+        <View style={{ flex: 1, justifyContent: "flex-end" }}>
+          <Fab
+            active={this.state.active}
+            direction="up"
+            containerStyle={{}}
+            style={{ backgroundColor: "#5067FF" }}
+            position="bottomRight"
+            onPress={() => this.setState({ active: !this.state.active })}
+          >
+            <Icon name="share" />
+            <Button style={{ backgroundColor: "#34A34F" }}>
+              <Icon name="logo-whatsapp" />
+            </Button>
+            <Button style={{ backgroundColor: "#3B5998" }}>
+              <Icon name="logo-facebook" />
+            </Button>
+            <Button disabled style={{ backgroundColor: "#DD5144" }}>
+              <Icon name="mail" />
+            </Button>
+          </Fab>
         </View>
       </View>
     );

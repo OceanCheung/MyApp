@@ -13,7 +13,7 @@ export default class Header extends Component {
 }
 const styles = StyleSheet.create({
   header: {
-    width: Dimensions.get("window").width,
+    width: "100%",
     backgroundColor: "#2789ef",
     flexDirection: "row",
     justifyContent: "center",
